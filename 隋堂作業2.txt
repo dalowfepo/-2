@@ -1,0 +1,509 @@
+
+R version 3.5.1 (2018-07-02) -- "Feather Spray"
+Copyright (C) 2018 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> first_num <- 8
+> second_num <- 7
+> first_num + second_num
+[1] 15
+> first_num - second_num
+[1] 1
+> first_num * second_num
+[1] 56
+> first_num / second_num
+[1] 1.142857
+> first_num^second_num
+[1] 2097152
+> first_num %% second_num
+[1] 1
+> first_int <- 8L
+> second_int <- 7L
+> ans <- first_int * second_int
+> ans
+[1] 56
+> class(ans)
+[1] "integer"
+> ans <- first_int / second_int
+> ans
+[1] 1.142857
+> class(ans)
+[1] "numeric"
+> my_num <- 8
+> my_int <- 7L
+> ans <- my_num + my_int
+> class(ans)
+[1] "numeric"
+> my_num <- 0
+> my_int <- 0L
+> my_logi <- FALSE
+> my_num == my_logi
+[1] TRUE
+> my_int == my_logi
+[1] TRUE
+> my_num <- 1
+> my_int <- 1L
+> my_logi <- TRUE
+> my_num == my_logi
+[1] TRUE
+> my_int == my_logi
+[1] TRUE
+> my_logi <- TRUE
+> ans <- my_num + my_int + my_logi
+> ans
+[1] 3
+> class(ans)
+[1] "numeric"
+> my_logi <- FALSE
+> ans <- my_num + my_int + my_logi
+> ans
+[1] 2
+> class(ans)
+[1] "numeric"
+> x <- c(1,2,3,4) #數字向量
+> x
+[1] 1 2 3 4
+> season_1 <- "spring"
+> season_2 <- "summer"
+> season_3 <- "autumn"
+> season_4 <- "winter"
+> four_seasons <- c("spring", "summer", "autumn", "winter")
+> four_seasons
+[1] "spring" "summer" "autumn" "winter"
+> rep("2", times = 10)
+ [1] "2" "2" "2" "2" "2" "2" "2" "2" "2" "2"
+> rep("R", times = 10)
+ [1] "R" "R" "R" "R" "R" "R" "R" "R" "R" "R"
+> seq(from = 1, to = 10, by = 1) #等差函數
+ [1]  1  2  3  4  5  6  7  8  9 10
+> 1:10
+ [1]  1  2  3  4  5  6  7  8  9 10
+> lucky_numbers <- c(7L, 24)
+> class(lucky_numbers[1])
+[1] "numeric"
+> lucky_numbers <- c(7L, FALSE)
+> lucky_numbers
+[1] 7 0
+> class(lucky_numbers[2])
+[1] "integer"
+> mixed_vars <- c(TRUE, 7L, 24, "spring")
+> mixed_vars
+[1] "TRUE"   "7"      "24"     "spring"
+> class(mixed_vars[1])
+[1] "character"
+> class(mixed_vars[2])
+[1] "character"
+> class(mixed_vars[3])
+[1] "character"
+> favorite_season <- four_seasons[3]
+> favorite_season
+[1] "autumn"
+> favorite_seasons <- four_seasons[c(-2, -4)] # 我喜歡春天或秋天
+> favorite_seasons
+[1] "spring" "autumn"
+> my_favorite_season <- four_seasons == "autumn"
+> four_seasons[my_favorite_season]
+[1] "autumn"
+> my_favorite_seasons <- four_seasons == "spring" | four_seasons == "autumn" # 我喜歡春天或秋天
+> four_seasons[my_favorite_seasons]
+[1] "spring" "autumn"
+> numvec<-1:10 # c(1,2,3,4,5,6,7,8,9,10)
+> numvec+3 # 所有元素+3
+ [1]  4  5  6  7  8  9 10 11 12 13
+> numvec*2 # 所有元素*2
+ [1]  2  4  6  8 10 12 14 16 18 20
+> numvec1<-1:3 ## c(1,2,3)
+> numvec2<-4:6 ## c(4,5,6)
+> numvec1+numvec2
+[1] 5 7 9
+> numvec1*numvec2
+[1]  4 10 18
+> factor(c("?學?","碩?班學?","博?班學?"),
++        levels = c("?學?","碩?班學?","博?班學?"))
+[1] ?學?     碩?班學? 博?班學?
+Levels: ?學? 碩?班學? 博?班學?
+> ordered = FALSE
+> ```
+Error: attempt to use zero-length variable name
+> ～因素是?個帶有層級（Levels）資訊的向量，我們使? `factor()` 函數可以將向量轉換成因素向量，輸出因素向量時會將層級的資訊輸出。在轉換為因素向量時，可利? `ordered = TRUE` 與 `levels =的參數`來排序。
+Error: unexpected input in "?
+> ```{r}
+Error: attempt to use zero-length variable name
+> four_seasons <- c("spring", "summer", "autumn", "winter")
+> four_seasons
+[1] "spring" "summer" "autumn" "winter"
+> four_seasons_factor < factor(four_seasons)
+Error: object 'four_seasons_factor' not found
+> four_seasons_factor
+Error: object 'four_seasons_factor' not found
+> four_seasons_factor <- factor(four_seasons, ordered = TRUE, levels = c("summer", "winter", "spring", "autumn"))
+> four_seasons_factor
+[1] spring summer autumn winter
+Levels: summer < winter < spring < autumn
+> temperatures <- c("warm", "hot", "cold")
+> temp_factors <- factor(temperatures, ordered = TRUE, levels = c("cold", "warm", "hot"))
+> temp_factors
+[1] warm hot  cold
+Levels: cold < warm < hot
+> temperatures <- c("warm", "hot", "cold")
+> temp_factors <- factor(temperatures, ordered = TRUE)
+> temp_factors
+[1] warm hot  cold
+Levels: cold < hot < warm
+> weekdays <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+> favorite_day <- weekdays[Monday]
+Error: object 'Monday' not found
+> favorite_day
+Error: object 'favorite_day' not found
+> weekdays <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+> favorite_day <- weekdays"Monday"
+Error: unexpected string constant in "favorite_day <- weekdays"Monday""
+> favorite_day
+Error: object 'favorite_day' not found
+> weekdays <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
+> favorite_day <- weekdays_Monday
+Error: object 'weekdays_Monday' not found
+> favorite_day
+Error: object 'favorite_day' not found
+> my_mat <- matrix(c(1, 2, TRUE, FALSE, 3, 4), nrow = 2)
+> my_mat
+     [,1] [,2] [,3]
+[1,]    1    1    3
+[2,]    2    0    4
+> class(my_mat[, 2]) # 原本第?欄（2nd column）的輸入是兩個邏輯值
+[1] "numeric"
+> my_mat <- matrix(1:6, nrow = 2)
+> my_mat
+     [,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+> my_mat[2, 3] # 選出位於（2, 3）這個位置的 6
+[1] 6
+> my_mat[2, ] # 選出所有第?列（2nd row）的元素
+[1] 2 4 6
+> my_mat[, 3] # 選出所有第三欄（2nd column）的元素
+[1] 5 6
+> filter <- my_mat < 6 & my_mat > 1
+> my_mat[filter]
+[1] 2 3 4 5
+> team_name <- c("Chicago Bulls", "Golden State Warriors")
+> wins <- c(72, 73)
+> losses <- c(10, 9)
+> is_champion <- c(TRUE, FALSE)
+> season <- c("1995-96", "2015-16")
+> great_nba_teams <- data.frame(team_name, wins, losses, is_champion, season)
+> View(great_nba_teams)
+> great_nba_teams <- data.frame(team_name, wins, losses, is_champion, season, stringsAsFactors = FALSE)
+> str(great_nba_teams)
+'data.frame':	2 obs. of  5 variables:
+ $ team_name  : chr  "Chicago Bulls" "Golden State Warriors"
+ $ wins       : num  72 73
+ $ losses     : num  10 9
+ $ is_champion: logi  TRUE FALSE
+ $ season     : chr  "1995-96" "2015-16"
+> team_name <- c("Chicago Bulls", "Golden State Warriors")
+> wins <- c(72, 73)
+> losses <- c(10, 9)
+> is_champion <- c(TRUE, FALSE)
+> season <- c("1995-96", "2015-16")
+> great_nba_teams <- data.frame(team_name, wins, losses, is_champion, season, stringsAsFa)
+Error in data.frame(team_name, wins, losses, is_champion, season, stringsAsFa) : 
+  object 'stringsAsFa' not found
+> great_nba_teams <- data.frame(team_name, wins, losses, is_champion, season)
+> great_nba_teams[, 1] <- as.character(great_nba_teams[, 1])
+> great_nba_teams[, 5] <- as.character(great_nba_teams[, 5])
+> team_name <- c("Chicago Bulls", "Golden State Warriors")
+> wins <- c(72, 73)
+> losses <- c(10, 9)
+> is_champion <- c(TRUE, FALSE)
+> season <- c("1995-96", "2015-16")
+> great_nba_teams <- data.frame(team_name, wins, losses, is_champion, season)
+> great_nba_teams[1, 1] # 選出第?個變數的第?個觀測值 "Chicago Bulls"
+[1] Chicago Bulls
+Levels: Chicago Bulls Golden State Warriors
+> great_nba_teams[1, ] # 選出第?個觀測值
+      team_name wins losses is_champion  season
+1 Chicago Bulls   72     10        TRUE 1995-96
+> great_nba_teams[, 1] # 選出第?個變數
+[1] Chicago Bulls         Golden State Warriors
+Levels: Chicago Bulls Golden State Warriors
+> great_nba_teams[, "season"]
+[1] 1995-96 2015-16
+Levels: 1995-96 2015-16
+> great_nba_teams$team_name
+[1] Chicago Bulls         Golden State Warriors
+Levels: Chicago Bulls Golden State Warriors
+> great_nba_teams <- data.frame(team_name, wins, losses, is_champion, season, stringsAsFactors = FALSE)
+> filter <- great_nba_teams$is_champion == TRUE
+> great_nba_teams[filter, ] # 注意這個逗號
+      team_name wins losses is_champion  season
+1 Chicago Bulls   72     10        TRUE 1995-96
+> my_mat <- matrix(1:9, nrow = 3)
+> my_mat[3,2]
+[1] 6
+> my_mat <- matrix(1:9, nrow = 3)
+> my_mat[2,3]
+[1] 8
+> filter <- my_mat %% 2 == 1
+> my_mat[filter]
+[1] 1 3 5 7 9
+> team_name <- c("Chicago Bulls", "Golden State Warriors")
+> wins <- c(72, 73)
+> losses <- c(10, 9)
+> is_champion <- c(TRUE, FALSE)
+> season <- c("1995-96", "2015-16")
+> great_nba_teams <- data.frame(team_name, wins, losses, is_champion, season, stringsAsFa)
+Error in data.frame(team_name, wins, losses, is_champion, season, stringsAsFa) : 
+  object 'stringsAsFa' not found
+> great_nba_teams$team_name
+[1] "Chicago Bulls"         "Golden State Warriors"
+> greate_nba_teams[, "season"]
+Error: object 'greate_nba_teams' not found
+> my_arr <- array(1:20, dim = c(2, 2, 5))
+> my_arr
+, , 1
+
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+
+, , 2
+
+     [,1] [,2]
+[1,]    5    7
+[2,]    6    8
+
+, , 3
+
+     [,1] [,2]
+[1,]    9   11
+[2,]   10   12
+
+, , 4
+
+     [,1] [,2]
+[1,]   13   15
+[2,]   14   16
+
+, , 5
+
+     [,1] [,2]
+[1,]   17   19
+[2,]   18   20
+
+> my_arr <- array(1:20, dim = c(2, 2, 5))
+> my_arr[, , 1] # 第?個矩陣
+     [,1] [,2]
+[1,]    1    3
+[2,]    2    4
+> my_arr[, , 2] # 第?個矩陣
+     [,1] [,2]
+[1,]    5    7
+[2,]    6    8
+> my_arr[, , 3] # 第三個矩陣
+     [,1] [,2]
+[1,]    9   11
+[2,]   10   12
+> my_arr[, , 4] # 第四個矩陣
+     [,1] [,2]
+[1,]   13   15
+[2,]   14   16
+> my_arr[, , 5] # 第五個矩陣
+     [,1] [,2]
+[1,]   17   19
+[2,]   18   20
+> my_arr[1, , 2] # 選出第?個矩陣的第?個 row（觀察值）
+[1] 5 7
+> my_arr[, 2, 2] # 選出第?個矩陣的第?個 column （變數）
+[1] 7 8
+> my_arr[1, 2, 2] # 選出 7（元素）
+[1] 7
+> listSample<-list(Students=c("Tom","Kobe","Emma","Amy"),Year=2017,
++                  Score=c(60,50,80,40),School="CGU")
+> listSample
+$`Students`
+[1] "Tom"  "Kobe" "Emma" "Amy" 
+
+$Year
+[1] 2017
+
+$Score
+[1] 60 50 80 40
+
+$School
+[1] "CGU"
+
+> title <- "Great NBA Teams"
+> teams <- c("Chicago Bulls", "Golden State Warriors")
+> wins <- c(72, 73)
+> losses <- c(10, 9)
+> winning_percentage <- wins / (wins + losses)
+> season <- c("1995-96", "2015-16")
+> wins_losses <- matrix(c(wins, losses), nrow = 2)
+> df <- data.frame(Teams = teams, Winning_Percentage = winning_percentage, Season = season)
+> great_nba_teams <- list(title, teams, wins_losses, df)
+> great_nba_teams
+[[1]]
+[1] "Great NBA Teams"
+
+[[2]]
+[1] "Chicago Bulls"         "Golden State Warriors"
+
+[[3]]
+     [,1] [,2]
+[1,]   72   10
+[2,]   73    9
+
+[[4]]
+                  Teams Winning_Percentage  Season
+1         Chicago Bulls          0.8780488 1995-96
+2 Golden State Warriors          0.8902439 2015-16
+
+> list(1,2,3)
+[[1]]
+[1] 1
+
+[[2]]
+[1] 2
+
+[[3]]
+[1] 3
+
+> [[1]]
+Error: unexpected '[[' in "[["
+> [[2]]
+Error: unexpected '[[' in "[["
+> [[3]]
+Error: unexpected '[[' in "[["
+> list(c(1,2,3))
+[[1]]
+[1] 1 2 3
+
+> [[1]]
+Error: unexpected '[[' in "[["
+> list3 <- list(c(1,2,3), 3:7)
+> [[1]]
+Error: unexpected '[[' in "[["
+> [[2]]
+Error: unexpected '[[' in "[["
+> great_nba_teams[[1]] # 選出清單中的第?個物件
+[1] "Great NBA Teams"
+> great_nba_teams[[2]] # 選出清單中的第?個物件
+[1] "Chicago Bulls"         "Golden State Warriors"
+> great_nba_teams[[3]] # 選出清單中的第三個物件
+     [,1] [,2]
+[1,]   72   10
+[2,]   73    9
+> great_nba_teams[[4]] # 選出清單中的第四個物件
+                  Teams Winning_Percentage  Season
+1         Chicago Bulls          0.8780488 1995-96
+2 Golden State Warriors          0.8902439 2015-16
+> great_nba_teams[[3]][1, ] # 選出芝加哥公?隊 1995-96 的戰績
+[1] 72 10
+> great_nba_teams[3][1, ] # 選出芝加哥公?隊 1995-96 的戰績會產?錯誤
+Error in great_nba_teams[3][1, ] : incorrect number of dimensions
+> great_nba_teams$teams # 選出 teams 這個向量
+NULL
+> great_nba_teams$df # 選出 df 這個資料框
+NULL
+> great_nba_teams$teams[1, ] # 選出 teams 這個向量選出芝加哥公?隊 1995-96 的戰績
+NULL
+> great_nba_teams[[4]]$winning_percentage # 選出創紀錄的球季勝率
+NULL
+> x <- 1:10
+> y <- 2 * x + 5
+> lm_fit <- lm(formula = y ~ x)
+> lm_fit$coefficients
+(Intercept)           x 
+          5           2 
+> lm_fit$coefficients[1] # 截距為 5
+(Intercept) 
+          5 
+> lm_fit$coefficients[2] # x 係數為 2
+x 
+2 
+> my_mat <- matrix(24, nrow = 3, ncol = 4)
+> my_mat
+     [,1] [,2] [,3] [,4]
+[1,]   24   24   24   24
+[2,]   24   24   24   24
+[3,]   24   24   24   24
+> luke_mat <- matrix("Luke Skywalker", nrow = 2, ncol = 3)
+> luke_mat
+     [,1]             [,2]             [,3]            
+[1,] "Luke Skywalker" "Luke Skywalker" "Luke Skywalker"
+[2,] "Luke Skywalker" "Luke Skywalker" "Luke Skywalker"
+> true_mat <- matrix(TRUE, nrow = 4, ncol = 2)
+> true_mat
+     [,1] [,2]
+[1,] TRUE TRUE
+[2,] TRUE TRUE
+[3,] TRUE TRUE
+[4,] TRUE TRUE
+> conf_mat <- matrix(c(5, 3, 2, 17), nrow = 2, ncol = 2)
+> conf_mat
+     [,1] [,2]
+[1,]    5    2
+[2,]    3   17
+> conf_mat <- matrix(c(5, 3, 2, 17), nrow = 2, ncol = 2, byrow = TRUE)
+> conf_mat
+     [,1] [,2]
+[1,]    5    3
+[2,]    2   17
+> conf_mat <- matrix(c(5, 3, 2, 17), nrow = 2, ncol = 2)
+> conf_mat[1, 1]
+[1] 5
+> conf_mat[2, 1]
+[1] 3
+> conf_mat[1, 2]
+[1] 2
+> conf_mat[2, 2]
+[1] 17
+> conf_mat <- matrix(c(5, 3, 2, 17), nrow = 2, ncol = 2)
+> conf_mat[1,]
+[1] 5 2
+> conf_mat[2,]
+[1]  3 17
+> conf_mat[,1]
+[1] 5 3
+> conf_mat[,2]
+[1]  2 17
+> conf_mat <- matrix(c(5, 3, 2, 17), nrow = 2, ncol = 2, dimnames = list(c("Predicted Positive", "Predicted Negative")c("Condition Positive", "Condition Negative")))
+Error: unexpected symbol in "conf_mat <- matrix(c(5, 3, 2, 17), nrow = 2, ncol = 2, dimnames = list(c("Predicted Positive", "Predicted Negative")c"
+> conf_mat
+     [,1] [,2]
+[1,]    5    2
+[2,]    3   17
+> conf_mat <- matrix(c(5, 3, 2, 17), nrow = 2, ncol = 2)
+> rownames(conf_mat) <- c("Predicted Positive", "Predicted Negative")
+> colnames(conf_mat) <- c("Condition Positive", "Condition Negative")
+> conf_mat
+                   Condition Positive Condition Negative
+Predicted Positive                  5                  2
+Predicted Negative                  3                 17
+> conf_mat <- matrix(c(5, 3, 2, 17), nrow = 2, ncol = 2, dimnames = list(c("Predicted Positive", "Predicted Negative"),c("Condition Positive", "Condition Negative")))
+> conf_mat["Predicted Positive", "Condition Positive"] # 5
+[1] 5
+> conf_mat[1, 1] # 5
+[1] 5
+> conf_mat["Predicted Negative", "Condition Negative"] # 5
+[1] 17
+> conf_mat[2, 2] # 17
+[1] 17
+> my_mat <- matrix(1:25, nrow = 5, ncol = 5)
+> is_even <- my_mat %% 2 == 0
+> my_mat[is_even]
+ [1]  2  4  6  8 10 12 14 16 18 20 22 24
+> 
